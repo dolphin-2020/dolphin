@@ -1,0 +1,31 @@
+{
+  "name": "dolphin",
+  "version": "1.0.0",
+  "description": "## Table of Contents",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolphin-2020/dolphin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dolphin-2020/dolphin/issues"
+  },
+  "homepage": "https://github.com/dolphin-2020/dolphin#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^4.0.1",
+    "gulp-image": "^5.1.0",
+    "gulp-imagemin": "^6.2.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}

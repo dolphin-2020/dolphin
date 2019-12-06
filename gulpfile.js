@@ -1,13 +1,13 @@
 const{src,dest,parallel,watch}=require("gulp");
-const autoprefix=require("gulp-autoprefixer");
+const autoprefix = require("gulp-autoprefixer");
 const clean=require("gulp-clean-css");
-const image =require("gulp-imagemin");
 const babel =require("gulp-babel");
 const concat=require("gulp-concat");
 const uglify=require("gulp-uglify");
 const copy=require("gulp-copy");
 const browserSync=require("browser-sync")
 const image=require("gulp-image");
+const sourcemaps=require("gulp-sourcemaps");
 
 function style(){
   return src("./src/css/**/*.css")
@@ -17,35 +17,44 @@ function style(){
   }))
   .pipe(clean())
   .pipe(dest("./dest/css/"))
-  .pipe(browserSync.stream());
+
 };
 
 function cpImgs(){
-  return src('./src/images/**/')
-  .pipe(copy('./'))
+  return src('./src/images/**/*')
+  //.pipe(copy('./'))
   .pipe(image())
   .pipe(dest('./dest/images/'))
 }
 
 function js(){
-  return src('./src/js/**/*.js')
-  .pipe(sourcemaps.init())
+  return src(['./src/js/resources.js','./src/js/app.js','./src/js/engine.js'])
+  //.pipe(sourcemaps.init())
   .pipe(babel({
-    presets: ['@babel/transform-runtime'],
-    presets: [ '@babel/env']
+    presets: [
+      ['@babel/preset-env', {modules: false}]
+]
   }))
   .pipe(concat('main.js'))
   .pipe(uglify())
-  .pipe(sourcemaps.write('.'))
+  //.pipe(sourcemaps.write('.'))
   .pipe(dest('./dest/js'))
-  .pipe(browserSync.stream());
+
 }
 
 function cpHtml(){
   return src('./src/**/*.html')
-  .pipe(copy('./'))
   .pipe(dest('./dest/'))
 }
+
+function browser(){
+  browserSync.init({
+    server:{
+      baseDir:'./dest/'
+    }
+  })
+}
+
 
 function watcher () {
   browserSync.init({
@@ -58,4 +67,4 @@ function watcher () {
   watch('src/**/*.html',cpHtml)
 }
 
-exports.all=parallel(style,img,cpHtml,cpImgs,js,watcher);
+exports.all=parallel(style,cpHtml,cpImgs,js,watcher);

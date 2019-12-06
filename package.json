@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dolphin-2020/dolphin#readme",
   "devDependencies": {
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -26,6 +27,7 @@
     "gulp-copy": "^4.0.1",
     "gulp-image": "^5.1.0",
     "gulp-imagemin": "^6.2.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2"
   }
 }

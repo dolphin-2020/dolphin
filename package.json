@@ -18,7 +18,7 @@
   "homepage": "https://github.com/dolphin-2020/dolphin#readme",
   "devDependencies": {
     "@babel/preset-es2015": "^7.0.0-beta.53",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
